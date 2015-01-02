@@ -4,13 +4,15 @@ using System.Collections;
 public class Slingshot : MonoBehaviour {
 	public GameObject prefabProjectile;
 	public float velocityMult = 4f;
+	static public Slingshot Instance;
 
-	GameObject launchPoint;
+	public GameObject launchPoint;
 	Vector3 launchPos;
 	GameObject projectile;
 	bool aimingMode;
 	
 	void Awake() {
+		Instance = this;
 		Transform launchPointTrans = transform.Find("LaunchPoint");
 		launchPoint = launchPointTrans.gameObject;
 		launchPoint.SetActive( false );
